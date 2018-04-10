@@ -1,0 +1,24 @@
+#!/bin/bash
+#SBATCH -t 3:00:00
+#SBATCH -n 24
+#SBATCH -p short
+
+#Load modules
+module load eb
+module load Miniconda2
+
+# loading virtualenv
+source activate qiime1
+
+# setting temporary directory
+export TMPDIR=~/qiime_tmp
+
+# getting and unpacking SILVA128
+wget https://www.arb-silva.de/fileadmin/silva_databases/qiime/Silva_128_release.tgz
+tar -xvzf Silva_128_release.tgz
+
+# picking open ref OTUs SILVA 2018
+echo "pciking OTUs SILVA 2018"
+
+time pick_open_reference_otus.py -i ~/2018_02_smb/demultiplexed/seqs.fna -o ~/2018_02_smb/open_ref_otu2 -r ~/SILVA_128_QIIME_release/rep_set/rep_set_all/97/97_otus.fasta -p ~/2018_02_smb/parameter_file
+
