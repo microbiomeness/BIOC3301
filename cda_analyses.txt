@@ -1,0 +1,20 @@
+#!/bin/bash
+#SBATCH -t 1:00:00
+#SBATCH -n 24
+#SBATCH -p short
+
+#Load modules
+module load eb
+module load Miniconda2
+
+# loading virtualenv
+source activate qiime1
+
+# setting temporary directory
+export TMPDIR=~/qiime_tmp
+
+# CDA bacteroidetes/firmicutes (e155) and all soil characteristics
+time core_diversity_analyses.py -i ~/2018_02_smb/open_ref_otu_maj/otu_table_bacteroidetes_firmicutes.biom -o ~/2018_02_smb/open_ref_otu_maj/cda_bacteroidetes_firmicutes -m ~/map_complete.tsv -e 155 -p ~/2018_02_smb/open_ref_otu_maj/cda_parameter --parallel -O 4 --nonphylogenetic_diversity -c SamplePhosphorus,SamplePh,SampleNitrogen,SamplePotassium --recover_from_failure
+
+# source deactivate
+source deactivate
