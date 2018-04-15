@@ -18,3 +18,6 @@ conda install -c Biocond fastq-join
 
 # joining paired ends
 join_paired_ends.py -m fastq-join -b ~/2018_02_smb/Index.fastq.gz -f ~/2018_02_smb/Read1.fastq.gz -r ~/2018_02_smb/Read2.fastq.gz -o ~/2018_02_smb/fastqjoined_ends
+
+# source deactivate
+source deactivate
