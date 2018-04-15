@@ -17,3 +17,4 @@ export TMPDIR=~/qiime_tmp
 echo "splitting libraries" 
 time split_libraries_fastq.py -i ~/2018_02_smb/fastqjoined_ends/fastqjoin.join.fastq -m ~/map_complete.tsv -b ~/2018_02_smb/fastqjoined_ends/fastqjoin.join_barcodes.fastq --rev_comp_barcode --rev_comp_mapping_barcodes -q 29 -o ~/2018_02_smb/demultiplexed
 
+source deactivate
