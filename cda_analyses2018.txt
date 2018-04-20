@@ -1,0 +1,20 @@
+#!/bin/bash
+#SBATCH -t 3:00:00
+#SBATCH -n 24
+#SBATCH -p normal
+
+#Load modules
+module load eb
+module load Miniconda2
+
+# loading virtualenv
+source activate qiime1
+
+# setting temporary directory
+export TMPDIR=~/qiime_tmp
+
+# CDA -e 1454
+time core_diversity_analyses.py -i ~/2018_02_smb/open_ref_otu_maj/otu_table_mc2_w_tax_no_pynast_failures.biom -o ~/2018_02_smb/open_ref_otu_maj/cda_all2 -m ~/map_complete_ph.tsv -e 1454 -p ~/2018_02_smb/open_ref_otu_maj/cda_parameter --parallel -O 4 -c SamplePhosphorus,SamplePh,SampleNitrogen,SamplePotassium --recover_from_failure
+
+# source deactivate
+source deactivate
