@@ -1,0 +1,22 @@
+#!/bin/bash
+#SBATCH -t 1:00:00
+#SBATCH -n 24
+#SBATCH -p short
+
+#Load modules
+module load eb
+module load Miniconda2
+
+# loading virtualenv
+source activate qiime1
+
+# setting temporary directory
+export TMPDIR=~/qiime_tmp
+
+# filter only Sphingobacteriales in OTU table
+filter_taxa_from_otu_table.py -i ./otu_table_mc2_w_tax_no_pynast_failures.biom -o ./bacteroidetes_table.biom -p D_3__Sphingobacteriales
+
+source deactivate
+---
+
+biom summarize-table -i ./bacteroidetes_table.biom -o ./bacteroidetes_table_summary
