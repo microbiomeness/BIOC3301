@@ -1,0 +1,19 @@
+#!/bin/bash
+#SBATCH -t 1:00:00
+#SBATCH -n 24
+#SBATCH -p short
+
+#Load modules
+module load eb
+module load Miniconda2
+
+# loading virtualenv
+source activate qiime1
+
+# setting temporary directory
+export TMPDIR=~/qiime_tmp
+
+# beta diversity of only sphingobatceriales
+beta_diversity_through_plots.py -i ~/2018_02_smb/open_ref_otu_maj/bacteroidetes_table.biom -m ~/map_complete_ph.tsv -o ~/2018_02_smb/open_ref_otu_maj/b_diversity_bacteroidetes --parallel -O 4 -e 106
+
+source deactivate
