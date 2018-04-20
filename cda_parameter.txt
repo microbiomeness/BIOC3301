@@ -3,3 +3,4 @@ compare_alpha_diversity:test_type nonparametric
 make_distance_boxplots:save_raw_data
 make_distance_boxplots:num_permutations 999
 make_distance_boxplots:fields SamplePhosphorus,SamplePh,SampleNitrogen,SamplePotassium
+summarize_taxa_through_plots:mapping_category SamplePhosphorus,SamplePh,SampleNitrogen,SamplePotassium
