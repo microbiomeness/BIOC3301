@@ -1,0 +1,19 @@
+#!/bin/bash
+#SBATCH -t 1:00:00
+#SBATCH -n 24
+#SBATCH -p short
+
+#Load modules
+module load eb
+module load Miniconda2
+
+# loading virtualenv
+source activate qiime1
+
+# setting temporary directory
+export TMPDIR=~/qiime_tmp
+
+# make 2D plots from weighted B-diversity of sphingobacteriales
+make_2d_plots.py -i ~/2018_02_smb/open_ref_otu_maj/b_diversity_bacteroidetes/weighted_unifrac_pc.txt -m ~/map_complete_ph.tsv -b SamplePh -o ~/2018_02_smb/open_ref_otu_maj/2D_plots
+
+source deactivate
