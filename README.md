@@ -8,6 +8,6 @@ Processing workflow is:
 * cda_analyses2018.txt + cda_parameter.txt
 * OTU table sphingobacteriales.txt
 * beta_diversity_sphingobacteriales.txt
-* cluster_quality_sphingo.txt
 * 2D_PCoA_plots_sphingo.txt
+* cluster_quality_sphingo.txt
 * kendall_ph_correlation.txt
