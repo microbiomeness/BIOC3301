@@ -1,0 +1,17 @@
+#!/bin/bash
+#SBATCH -t 1:00:00
+#SBATCH -n 24
+#SBATCH -p short
+
+#Load modules
+module load eb
+module load Miniconda2
+
+# loading virtualenv
+source activate qiime1
+
+# setting temporary directory
+export TMPDIR=~/qiime_tmp
+
+# group significance Kruskal Wallis 
+group_significance.py -i ./otu_table_mc2_w_tax_no_pynast_failures.biom -m ~/map_complete_ph.tsv -c SamplePh -o ./group_significance_ph -s kruskal_wallis 
