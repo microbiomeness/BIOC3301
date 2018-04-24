@@ -1,0 +1,20 @@
+#!/bin/bash
+#SBATCH -t 1:00:00
+#SBATCH -n 24
+#SBATCH -p short
+
+#Load modules
+module load eb
+module load Miniconda2
+
+# loading virtualenv
+source activate qiime1
+
+# setting temporary directory
+export TMPDIR=~/qiime_tmp
+
+
+# nonparametric, nonmonotonic analysis of correlation between pH and OTU abundance
+observation_metadata_correlation.py -i ./otu_table_mc2_w_tax_no_pynast_failures.biom -o ./corr_tau_boot -m ~/map_complete_ph.tsv -c SamplePh -s kendall --pval_assignment_method bootstrapped
+
+source deactivate
