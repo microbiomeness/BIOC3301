@@ -10,4 +10,5 @@ Processing workflow is:
 * beta_diversity_sphingobacteriales.txt
 * 2D_PCoA_plots_sphingo.txt
 * cluster_quality_sphingo.txt
+* group_significance.txt
 * kendall_ph_correlation.txt
