@@ -3,7 +3,7 @@ Folder shows all code used on QIIME 1.9.1 in the metagenomic processing of 16S r
 
 Processing workflow is:
 * joinends2018.txt 
-join forward and backward read from sequencing.
+  * join forward and backward read from sequencing.
 * split_libraries2018.txt 
 demultiplex the sequences with the given barcodes. Quality score cutoff of greater than or equal to 30 was used to filter the sequences.
 * open_ref_OTUs_SILVA128_2018.txt + open_ref_otu_parameters.txt 
